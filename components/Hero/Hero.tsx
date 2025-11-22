@@ -1,12 +1,25 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { ContentData } from "@/backend/types";
 
 const Hero = () => {
+  const [content, setContent] = useState<ContentData | null>(null);
+
+  useEffect(() => {
+    fetch('/api/content')
+      .then(res => res.json())
+      .then(data => setContent(data))
+      .catch(err => console.error('Failed to load content:', err));
+  }, []);
+
+  if (!content) {
+    return <div className="text-white text-center py-20">Yükleniyor...</div>;
+  }
   return (
     <section>
       <div className="flex flex-col-reverse gap-4 lg:flex-row  sm:flex-col-reverse md:flex-col-reverse justify-center items-center">
@@ -36,9 +49,9 @@ const Hero = () => {
             <TypeAnimation
               sequence={[
                 // Same substring at the start will only be typed out once, initially
-                "Hasan Emir Caglar",
+                content.heroBanner.title,
                 1000, // wait 1s before replacing "Mice" with "Hamsters"
-                "Frontend Developer",
+                content.heroBanner.subtitle,
                 1000,
                 "Web Geliştirici",
               ]}
@@ -48,22 +61,19 @@ const Hero = () => {
             />
           </h1>
           <p className="text-white opacity-75 text-base mb-6 lg:text-lg">
-            Merhaba, ben Hasan Emir Çağlar. 1 yıllık Jr. Frontend Developer
-            deneyimimle kurumsal web siteleri ve uygulamalar geliştirdim. UI/UX
-            tasarımlarını koda dönüştürdüm. Hedefim, kendimi geliştirerek
-            sektörde ilerlemek ve yeni iş fırsatları bulmak
+            {content.heroBanner.description}
           </p>
 
           <div>
             <a
-              href="mailto:hasan.49.5012@gmail.com"
+              href={`mailto:${content.personalInfo.email}`}
               className="px-6 inline-block py-3 w-full md:w-fit rounded-full bg-gradient-to-br transition-all from-mycolor-200 to-mycolor-100 text-dark text-center mr-4 hover:from-mycolor-300 hover:to-mycolor-300 hover:text-white"
             >
               Bana Ulaş
             </a>
 
             <a
-              href="/hasan-emir-caglar-cv_last.pdf"
+              href={content.personalInfo.cvUrl}
               download="hasan-emir-caglar-cv.pdf"
               className="px-1 inline-block 
                   py-1 w-full md:w-fit rounded-full
@@ -98,7 +108,7 @@ const Hero = () => {
           >
             <Image
               alt="Junior Frontend Developer"
-              src="/ben.JPG"
+              src={content.heroBanner.imageUrl}
               width={370}
               height={370}
               className="absolute object-cover transform 

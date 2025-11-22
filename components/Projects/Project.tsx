@@ -1,35 +1,23 @@
 "use client";
 
 import { useInView } from "framer-motion";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import ProjectTag from "./ProjectTag";
 import { motion } from "framer-motion";
 import ProjectCard from "./ProjectCard";
-
-const projectsData = [
-  {
-    id: 1,
-    title: "Cags Movie",
-    description: "Kullanıcıların Üye girişi yapabildikleri bir film bilgilendirme ve listeleme sitesi. Kullanılan teknolojiler: React.js , tailwind.css",
-    image: "/movie.jpg",
-    tag: ["All", "Frontend"],
-    gitUrl: "https://github.com/Hcaglar32/movie-project",
-    previewUrl: "/",
-  },
-  {
-    id: 2,
-    title: "Hava Durumu",
-    description: "Kullanıcıların dünyadaki bütün şehirleri aratarak o şehrin hava durumunu öğrenebileceği bir uygulama. Kullanılan teknoloji:vite.js",
-    image: "/weatherapp.jpg",
-    tag: ["All", "Frontend"],
-    gitUrl: "https://github.com/Hcaglar32/WeatherApp",
-    previewUrl: "/",
-  },
-];
+import { Project as ProjectType } from "@/backend/types";
 
 const Project = () => {
   const [tag, setTag] = useState("All");
+  const [projectsData, setProjectsData] = useState<ProjectType[]>([]);
   const ref = useRef(null);
+
+  useEffect(() => {
+    fetch('/api/content')
+      .then(res => res.json())
+      .then(data => setProjectsData(data.projects))
+      .catch(err => console.error('Failed to load projects:', err));
+  }, []);
 
   const isInview = useInView(ref, { once: true });
 
