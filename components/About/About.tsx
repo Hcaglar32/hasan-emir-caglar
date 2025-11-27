@@ -86,7 +86,7 @@ const About = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-foreground">
-                    Kim Ben?
+                    Ben Kimim?
                   </h3>
                   <p className="text-xs text-emerald-400">
                     İş fırsatlarına açık

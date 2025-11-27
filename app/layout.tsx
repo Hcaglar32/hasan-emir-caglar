@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   description: "Frontend Developer olarak modern web uygulamaları ve kurumsal web siteleri geliştiriyorum. React.js, Next.js, TypeScript ve Tailwind CSS konularında uzmanım.",
   keywords: ["Frontend Developer", "React", "Next.js", "TypeScript", "Web Developer", "Türkiye"],
   authors: [{ name: "Hasan Emir Çağlar" }],
+  icons: {
+    icon: "/icon.svg",
+  },
   openGraph: {
     title: "Hasan Emir Çağlar | Frontend Developer",
     description: "Frontend Developer olarak modern web uygulamaları geliştiriyorum.",

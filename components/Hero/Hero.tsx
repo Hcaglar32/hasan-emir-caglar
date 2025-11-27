@@ -68,25 +68,17 @@ const Hero = () => {
           />
         </svg>
 
-        {/* Floating Particles */}
-        <div className="absolute inset-0 overflow-hidden">
-          {[...Array(6)].map((_, i) => (
-            <motion.div
+        {/* Floating Particles - CSS only for better performance */}
+        <div className="absolute inset-0 overflow-hidden hidden md:block">
+          {[...Array(3)].map((_, i) => (
+            <div
               key={i}
-              className="absolute w-1 h-1 bg-emerald-400/40 rounded-full"
+              className="absolute w-1 h-1 bg-emerald-400/30 rounded-full animate-pulse"
               style={{
-                left: `${15 + i * 15}%`,
-                top: `${20 + (i % 3) * 30}%`,
-              }}
-              animate={{
-                y: [0, -30, 0],
-                opacity: [0.2, 0.6, 0.2],
-                scale: [1, 1.5, 1],
-              }}
-              transition={{
-                duration: 4 + i,
-                repeat: Infinity,
-                delay: i * 0.5,
+                left: `${20 + i * 25}%`,
+                top: `${25 + (i % 2) * 35}%`,
+                animationDelay: `${i * 0.8}s`,
+                animationDuration: '3s',
               }}
             />
           ))}
@@ -165,8 +157,8 @@ const Hero = () => {
               </MovingBorderButton>
 
               <a
-                href={getAssetPath("/hasan_emir_caglar.pdf")}
-                download="hasan_emir_caglar.pdf"
+                href={getAssetPath("/hasan-emir-caglar.pdf")}
+                download="hasan-emir-caglar.pdf"
                 className="h-12 px-6 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-all flex items-center justify-center gap-2 text-foreground font-medium"
               >
                 <IconDownload className="h-4 w-4" />
@@ -203,8 +195,8 @@ const Hero = () => {
             className="flex justify-center lg:justify-end order-1 lg:order-2"
           >
             <div className="relative">
-              {/* Glow Effect */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full blur-2xl opacity-20 animate-pulse" />
+              {/* Glow Effect - Reduced animation */}
+              <div className="absolute -inset-4 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full blur-2xl opacity-15" />
               
               {/* Border Ring */}
               <div className="relative p-1 rounded-full bg-gradient-to-r from-emerald-500 via-cyan-500 to-emerald-500">

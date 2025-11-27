@@ -69,15 +69,15 @@ const Archive = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/30 via-cyan-500/20 to-purple-500/30 opacity-30" />
             <div className="absolute inset-[1px] bg-gradient-to-br from-card via-card to-emerald-950/20 rounded-3xl" />
             
-            {/* Animated Code SVG - Sağ Alt (Arka Planda) */}
-            <div className="absolute -bottom-10 -right-10 w-64 h-64 md:w-72 md:h-72 opacity-10 pointer-events-none overflow-hidden z-0">
+            {/* Static Code SVG - Sağ Alt (Arka Planda) - Optimized */}
+            <div className="absolute -bottom-10 -right-10 w-64 h-64 md:w-72 md:h-72 opacity-10 pointer-events-none overflow-hidden z-0 hidden md:block">
               <svg
                 viewBox="0 0 200 200"
                 className="w-full h-full"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 {/* Terminal Window */}
-                <motion.rect
+                <rect
                   x="20"
                   y="20"
                   width="160"
@@ -86,126 +86,33 @@ const Archive = () => {
                   fill="none"
                   stroke="url(#codeGradient)"
                   strokeWidth="2"
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: 1 }}
-                  transition={{ duration: 2, ease: "easeInOut" }}
                 />
                 
                 {/* Terminal Header */}
-                <motion.line
+                <line
                   x1="20"
                   y1="40"
                   x2="180"
                   y2="40"
                   stroke="url(#codeGradient)"
                   strokeWidth="1"
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: 1 }}
-                  transition={{ duration: 1, delay: 0.5 }}
                 />
                 
                 {/* Terminal Dots */}
-                <motion.circle cx="35" cy="30" r="4" fill="#ef4444" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1 }} />
-                <motion.circle cx="50" cy="30" r="4" fill="#eab308" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.1 }} />
-                <motion.circle cx="65" cy="30" r="4" fill="#22c55e" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.2 }} />
+                <circle cx="35" cy="30" r="4" fill="#ef4444" />
+                <circle cx="50" cy="30" r="4" fill="#eab308" />
+                <circle cx="65" cy="30" r="4" fill="#22c55e" />
                 
-                {/* Code Lines - Animated */}
-                <motion.rect
-                  x="30"
-                  y="55"
-                  width="80"
-                  height="6"
-                  rx="2"
-                  fill="url(#codeGradient)"
-                  initial={{ scaleX: 0, opacity: 0 }}
-                  animate={{ scaleX: 1, opacity: [0, 1, 1, 0.5] }}
-                  transition={{ duration: 1.5, delay: 1.5, repeat: Infinity, repeatDelay: 3 }}
-                  style={{ transformOrigin: "left" }}
-                />
-                <motion.rect
-                  x="30"
-                  y="70"
-                  width="120"
-                  height="6"
-                  rx="2"
-                  fill="url(#codeGradient)"
-                  initial={{ scaleX: 0, opacity: 0 }}
-                  animate={{ scaleX: 1, opacity: [0, 1, 1, 0.5] }}
-                  transition={{ duration: 1.5, delay: 2, repeat: Infinity, repeatDelay: 3 }}
-                  style={{ transformOrigin: "left" }}
-                />
-                <motion.rect
-                  x="45"
-                  y="85"
-                  width="90"
-                  height="6"
-                  rx="2"
-                  fill="url(#codeGradient)"
-                  initial={{ scaleX: 0, opacity: 0 }}
-                  animate={{ scaleX: 1, opacity: [0, 1, 1, 0.5] }}
-                  transition={{ duration: 1.5, delay: 2.5, repeat: Infinity, repeatDelay: 3 }}
-                  style={{ transformOrigin: "left" }}
-                />
-                <motion.rect
-                  x="45"
-                  y="100"
-                  width="60"
-                  height="6"
-                  rx="2"
-                  fill="url(#codeGradient)"
-                  initial={{ scaleX: 0, opacity: 0 }}
-                  animate={{ scaleX: 1, opacity: [0, 1, 1, 0.5] }}
-                  transition={{ duration: 1.5, delay: 3, repeat: Infinity, repeatDelay: 3 }}
-                  style={{ transformOrigin: "left" }}
-                />
-                <motion.rect
-                  x="30"
-                  y="115"
-                  width="100"
-                  height="6"
-                  rx="2"
-                  fill="url(#codeGradient)"
-                  initial={{ scaleX: 0, opacity: 0 }}
-                  animate={{ scaleX: 1, opacity: [0, 1, 1, 0.5] }}
-                  transition={{ duration: 1.5, delay: 3.5, repeat: Infinity, repeatDelay: 3 }}
-                  style={{ transformOrigin: "left" }}
-                />
+                {/* Code Lines - Static */}
+                <rect x="30" y="55" width="80" height="6" rx="2" fill="url(#codeGradient)" opacity="0.8" />
+                <rect x="30" y="70" width="120" height="6" rx="2" fill="url(#codeGradient)" opacity="0.7" />
+                <rect x="45" y="85" width="90" height="6" rx="2" fill="url(#codeGradient)" opacity="0.6" />
+                <rect x="45" y="100" width="60" height="6" rx="2" fill="url(#codeGradient)" opacity="0.5" />
+                <rect x="30" y="115" width="100" height="6" rx="2" fill="url(#codeGradient)" opacity="0.4" />
                 
-                {/* Cursor Blink */}
-                <motion.rect
-                  x="130"
-                  y="115"
-                  width="3"
-                  height="10"
-                  fill="#10b981"
-                  animate={{ opacity: [1, 0, 1] }}
-                  transition={{ duration: 1, repeat: Infinity }}
-                />
-                
-                {/* Floating Brackets */}
-                <motion.text
-                  x="150"
-                  y="170"
-                  fill="url(#codeGradient)"
-                  fontSize="24"
-                  fontFamily="monospace"
-                  animate={{ y: [170, 160, 170], opacity: [0.3, 0.8, 0.3] }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                >
-                  {"</>"}
-                </motion.text>
-                
-                <motion.text
-                  x="30"
-                  y="180"
-                  fill="url(#codeGradient)"
-                  fontSize="20"
-                  fontFamily="monospace"
-                  animate={{ y: [180, 170, 180], opacity: [0.2, 0.6, 0.2] }}
-                  transition={{ duration: 4, repeat: Infinity, delay: 1 }}
-                >
-                  {"{ }"}
-                </motion.text>
+                {/* Code Brackets */}
+                <text x="150" y="170" fill="url(#codeGradient)" fontSize="24" fontFamily="monospace" opacity="0.5">{"</>"}</text>
+                <text x="30" y="180" fill="url(#codeGradient)" fontSize="20" fontFamily="monospace" opacity="0.4">{"{ }"}</text>
                 
                 {/* Gradient Definition */}
                 <defs>

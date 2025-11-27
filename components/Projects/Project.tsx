@@ -277,25 +277,17 @@ const Project = () => {
           />
         </svg>
 
-        {/* Floating Particles */}
-        <div className="absolute inset-0 overflow-hidden">
-          {[...Array(6)].map((_, i) => (
-            <motion.div
+        {/* Floating Particles - CSS only for better performance */}
+        <div className="absolute inset-0 overflow-hidden hidden md:block">
+          {[...Array(3)].map((_, i) => (
+            <div
               key={i}
-              className="absolute w-1 h-1 bg-emerald-400/40 rounded-full"
+              className="absolute w-1 h-1 bg-emerald-400/30 rounded-full animate-pulse"
               style={{
-                left: `${15 + i * 15}%`,
-                top: `${20 + (i % 3) * 30}%`,
-              }}
-              animate={{
-                y: [0, -30, 0],
-                opacity: [0.2, 0.6, 0.2],
-                scale: [1, 1.5, 1],
-              }}
-              transition={{
-                duration: 4 + i,
-                repeat: Infinity,
-                delay: i * 0.5,
+                left: `${20 + i * 25}%`,
+                top: `${25 + (i % 2) * 35}%`,
+                animationDelay: `${i * 0.8}s`,
+                animationDuration: '3s',
               }}
             />
           ))}

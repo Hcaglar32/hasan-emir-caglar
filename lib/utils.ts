@@ -6,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 // GitHub Pages için basePath ekleyen helper
-const basePath = process.env.NODE_ENV === 'production' ? '/myportfolionextjs' : '';
+const basePath = process.env.NODE_ENV === 'production' ? '/hasan-emir-caglar' : '';
 
 export function getAssetPath(path: string): string {
   if (path.startsWith('/')) {
