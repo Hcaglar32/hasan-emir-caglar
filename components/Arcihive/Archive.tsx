@@ -54,7 +54,7 @@ const Archive = () => {
                   <span className="ml-2">{arc.postfix}</span>
                 </h2>
               </div>
-              <p className="text-white text-base max-w-28 mt-2 text-center">{arc.metric}</p>
+              <p className="text-white text-base max-w-32 mt-2 text-center">{arc.metric}</p>
             </div>
           );
         })}
