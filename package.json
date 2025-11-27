@@ -2,14 +2,14 @@
   "homepage": "https://hcaglar32.github.io/myportfolionextjs/",
   "name": "myportfolionextjs",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d  build",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "gh-pages -d out"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

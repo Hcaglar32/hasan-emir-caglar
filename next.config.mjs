@@ -1,11 +1,12 @@
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === 'production';
-const repoName = 'myportfolionextjs'; // GitHub repository adınız
-
 const nextConfig = {
-  output: 'export',              // next export kullanabilmek için
-  basePath: isProd ? `/${repoName}` : '',
-  assetPrefix: isProd ? `/${repoName}/` : '',
+  output: 'export',
+  basePath: '/myportfolionextjs',
+  assetPrefix: '/myportfolionextjs/',
+  images: {
+    unoptimized: true,
+  },
+  trailingSlash: true,
 };
 
-module.exports = nextConfig;
+export default nextConfig;
