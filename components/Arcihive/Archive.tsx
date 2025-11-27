@@ -42,6 +42,8 @@ const Archive = () => {
               <div className="flex items-center justify-center">
                 <IconComponent className="text-4xl mr-2 text-white" />
                 <h2 className="text-white text-4xl font-semibold flex flex-row">
+                  {arc.prefix}
+
                   <AnimatedNumbers
                     includeComma
                     transitions={(index) => ({
