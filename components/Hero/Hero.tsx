@@ -8,6 +8,7 @@ import { Spotlight } from "@/components/ui/spotlight";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { MovingBorderButton } from "@/components/ui/moving-border";
 import { IconDownload, IconMail, IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-react";
+import { getAssetPath } from "@/lib/utils";
 
 const Hero = () => {
   return (
@@ -164,7 +165,7 @@ const Hero = () => {
               </MovingBorderButton>
 
               <a
-                href="/hasan_emir_caglar.pdf"
+                href={getAssetPath("/hasan_emir_caglar.pdf")}
                 download="hasan_emir_caglar.pdf"
                 className="h-12 px-6 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-all flex items-center justify-center gap-2 text-foreground font-medium"
               >
@@ -210,7 +211,7 @@ const Hero = () => {
                 <div className="p-1 rounded-full bg-background">
                   <Image
                     alt="Hasan Emir Çağlar - Frontend Developer"
-                    src="/ben.JPG"
+                    src={getAssetPath("/ben.JPG")}
                     width={320}
                     height={320}
                     className="rounded-full object-cover w-[250px] h-[250px] lg:w-[320px] lg:h-[320px]"

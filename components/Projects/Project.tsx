@@ -26,6 +26,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import { getAssetPath } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -340,7 +341,7 @@ const Project = () => {
                 {/* Project Image */}
                 <div 
                   className="h-72 w-full bg-cover bg-center relative"
-                  style={{ backgroundImage: `url(${project.image})` }}
+                  style={{ backgroundImage: `url(${getAssetPath(project.image)})` }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
                   
@@ -480,7 +481,7 @@ const Project = () => {
                     transition={{ duration: 0.3 }}
                     className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                     style={{ 
-                      backgroundImage: `url(${(modalProject.images || [modalProject.image])[currentSlide]})`,
+                      backgroundImage: `url(${getAssetPath((modalProject.images || [modalProject.image])[currentSlide])})`,
                     }}
                   >
                     <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
