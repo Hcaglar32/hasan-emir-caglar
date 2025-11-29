@@ -97,6 +97,7 @@ const projectsData: ProjectItem[] = [
     image: "/sarikaya-2.png",
     images: ["/sarikaya.jpg", "/sarikaya-2.png","/sarikaya-tel.png"],
     tags: ["Tailwind CSS", "GSAP", "Laravel (Blade, Livewire)", "Alpine.js", "Figma"],
+    previewUrl:"https://sarikayagida.com.tr/",
   },
   {
     id: 3,
@@ -107,6 +108,7 @@ const projectsData: ProjectItem[] = [
     images: ["/alperby.png", "/alperby-2.png","/alper-tel.png"],
     tags: ["Tailwind CSS", "GSAP", "Laravel (Blade, Livewire)", "glob.js", "Alpine.js"],
     gitUrl: "https://github.com/Hcaglar32/myportfolionextjs",
+    previewUrl:"https://alper.by/en",
   },
   {
     id: 4,
@@ -116,6 +118,7 @@ const projectsData: ProjectItem[] = [
     image: "/tasingroup.com_hakkimizda.png",
     images: ["/tasin.png", "/tasingroup.com_hakkimizda.png"],
     tags: ["Tailwind CSS", "Alpine.js", "Laravel (Blade, Livewire)", "GSAP"],
+    previewUrl:"https://tasingroup.com/",
   },
   {
     id: 5,
@@ -125,6 +128,7 @@ const projectsData: ProjectItem[] = [
     image: "/alpset.png",
     images: ["/alpset.png", "/alpset-tel.png"],
     tags: ["Tailwind CSS", "Alpine.js", "Laravel", "Blade", "Livewire"],
+    previewUrl:"https://alpset.com/",
   },
   {
     id: 6,
@@ -135,6 +139,7 @@ const projectsData: ProjectItem[] = [
     images: ["/case-ecommerce.png"],
     tags: ["React.js", "Axios", "Context", "Lazyload", "Debounce"],
     note: "Case sonucu olumluydu fakat iş yeri ile anlaşamadım.",
+    previewUrl:"https://hcaglar32.github.io/case-project/",
   },
   {
     id: 7,
@@ -144,6 +149,7 @@ const projectsData: ProjectItem[] = [
     image: "/sunfit.png",
     images: ["/sunfit.png"],
     tags: ["HTML", "CSS", "Bootstrap", "JavaScript", "Owl"],
+    previewUrl:"https://www.sunfitpilates.com/",
   },
   {
     id: 8,
@@ -153,6 +159,7 @@ const projectsData: ProjectItem[] = [
     image: "/kvs.png",
     images: ["/kvs.png"],
     tags: ["HTML", "CSS", "Bootstrap", "JavaScript", "Owl"],
+    previewUrl:"https://kvsyapi.com/",
   },
 ];
 

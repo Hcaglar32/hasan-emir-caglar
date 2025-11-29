@@ -2,7 +2,8 @@
 
 import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { IconCalendar, IconMapPin, IconBriefcase } from "@tabler/icons-react";
+import { IconCalendar, IconMapPin, IconBriefcase, IconSparkles, IconMail, IconBrandLinkedin, IconPhone } from "@tabler/icons-react";
+import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -154,6 +155,72 @@ const Experience = () => {
             style={{ height: "0%" }}
           />
         </div>
+
+        {/* Your Company CTA Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="relative pl-20 pb-8"
+        >
+          {/* Timeline Dot - Special */}
+          <div className="absolute left-6 top-2 w-5 h-5 rounded-full bg-gradient-to-r from-emerald-500 to-cyan-500 border-4 border-background z-10">
+            <div className="absolute inset-0 rounded-full bg-emerald-500 animate-ping opacity-30" />
+          </div>
+
+          <div className="p-6 rounded-2xl bg-gradient-to-br from-emerald-500/10 via-cyan-500/5 to-purple-500/10 border border-emerald-500/30 hover:border-emerald-500/50 transition-all duration-300 group relative overflow-hidden">
+            {/* Gradient Overlay */}
+            <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-emerald-500/20 via-cyan-500/10 to-transparent pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-purple-500/10 to-transparent pointer-events-none" />
+            
+            {/* Header */}
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-2 rounded-lg bg-emerald-500/20 border border-emerald-500/30">
+                <IconSparkles className="h-5 w-5 text-emerald-400" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-foreground">
+                  Bir Sonraki Adım?
+                </h3>
+                <p className="text-emerald-400 font-medium text-sm">Sizin Şirketiniz Olabilir!</p>
+              </div>
+            </div>
+
+            {/* Content */}
+            <p className="text-muted-foreground text-sm leading-relaxed mb-5">
+              Yeni fırsatlara açığım ve ekibinizin bir parçası olmaktan mutluluk duyarım. 
+              Modern web teknolojileri konusundaki deneyimimi sizin projelerinize taşımak istiyorum. 
+              Hadi birlikte harika işler çıkaralım!
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="mailto:hasan.49.5012@gmail.com"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-emerald-500 to-cyan-500 text-white text-sm font-medium hover:opacity-90 transition-opacity"
+              >
+                <IconMail className="h-4 w-4" />
+                hasan.49.5012@gmail.com
+              </Link>
+              <Link
+                href="tel:+905051330627"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 hover:bg-emerald-500/20 text-foreground text-sm font-medium transition-all"
+              >
+                <IconPhone className="h-4 w-4 text-emerald-400" />
+                Telefon
+              </Link>
+              <Link
+                href="https://linkedin.com/in/hasan-emir-caglar"
+                target="_blank"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 text-foreground text-sm font-medium transition-all"
+              >
+                <IconBrandLinkedin className="h-4 w-4 text-cyan-400" />
+                LinkedIn
+              </Link>
+            </div>
+          </div>
+        </motion.div>
 
         {experiences.map((exp, index) => (
           <div 
